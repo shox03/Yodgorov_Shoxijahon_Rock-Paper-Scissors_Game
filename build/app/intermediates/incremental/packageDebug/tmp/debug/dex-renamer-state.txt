@@ -1,4 +1,4 @@
-#Tue Oct 19 19:46:46 UZT 2021
+#Wed Oct 20 00:54:51 UZT 2021
 base.0=/home/shox/darslar/exam/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

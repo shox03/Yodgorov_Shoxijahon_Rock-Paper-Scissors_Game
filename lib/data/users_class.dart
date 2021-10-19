@@ -1,17 +1,17 @@
 // To parse this JSON data, do
 //
-//     final usersClass = usersClassFromJson(jsonString);
+//     final post = postFromJson(jsonString);
 
 import 'dart:convert';
 
-List<UsersClass> usersClassFromJson(String str) =>
-    List<UsersClass>.from(json.decode(str).map((x) => UsersClass.fromJson(x)));
+List<Post> postFromJson(String str) =>
+    List<Post>.from(json.decode(str).map((x) => Post.fromJson(x)));
 
-String usersClassToJson(List<UsersClass> data) =>
+String postToJson(List<Post> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class UsersClass {
-  UsersClass({
+class Post {
+  Post({
     this.id,
     this.name,
     this.username,
@@ -31,7 +31,7 @@ class UsersClass {
   String? website;
   Company? company;
 
-  factory UsersClass.fromJson(Map<String, dynamic> json) => UsersClass(
+  factory Post.fromJson(Map<String, dynamic> json) => Post(
         id: json["id"],
         name: json["name"],
         username: json["username"],

@@ -21,45 +21,44 @@ class _LidersListState extends State<LidersList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+      body: SafeArea(
+        child: Center(
+            child: Column(
           children: [
-            // ListTile(
-            //   leading: CircleAvatar(
-            //     backgroundColor: widget.rang,
-            //     child: Icon(Icons.face),
-            //   ),
-            //   title: Text(widget.userName.toString()),
-            //   subtitle: Text("${widget.urunishlarSoni} win"),
-            //   trailing: (Icon(Icons.info)),
-            // ),
+            ListTile(
+              leading: CircleAvatar(
+                child: Icon(Icons.face),
+                backgroundColor: widget.rang,
+              ),
+              title: Text(widget.userName.toString()),
+              subtitle: Text("${widget.urunishlarSoni.toString()} Wins"),
+              trailing: Icon(
+                Icons.info,
+                color: Colors.greenAccent,
+              ),
+            ),
             FutureBuilder(
               future: _getData(),
-              builder: (context, AsyncSnapshot<List<UsersClass>> snap) {
+              builder: (context, AsyncSnapshot<List<Post>> snap) {
                 var data = snap.data;
                 return snap.hasData
                     ? Container(
-                        width: MediaQuery.of(context).size.width,
-                        // height: MediaQuery.of(context).size.height,
-
                         height: 500,
                         child: ListView.builder(
+                          itemCount: 5,
                           itemBuilder: (context, index) {
-                            return ListView.builder(
-                              itemCount: data!.length,
-                              scrollDirection: Axis.vertical,
-                              itemBuilder: (context, index) {
-                                return ListTile(
-                                  leading: CircleAvatar(
-                                    child: Icon(Icons.face),
-                                    backgroundColor:
-                                        Colors.teal[Random().nextInt(9) * 100],
-                                  ),
-                                  title: Text(data[index].username.toString()),
-                                  subtitle: Text("$index win"),
-                                  trailing: (Icon(Icons.info)),
-                                );
-                              },
+                            return ListTile(
+                              leading: CircleAvatar(
+                                child: Icon(Icons.face),
+                                backgroundColor:
+                                    Colors.teal[Random().nextInt(9) * 100],
+                              ),
+                              title: Text(data![index].username.toString()),
+                              subtitle: Text(data[index].name.toString()),
+                              trailing: Icon(
+                                Icons.info,
+                                color: Colors.greenAccent,
+                              ),
                             );
                           },
                         ),
@@ -70,20 +69,21 @@ class _LidersListState extends State<LidersList> {
               },
             ),
           ],
-        ),
+        )),
       ),
     );
   }
 
-  Future<List<UsersClass>> _getData() async {
-    Uri url = Uri.parse("https://jsonplaceholder.typicode.com/users");
-    var res = await http.get(url);
+  Future<List<Post>> _getData() async {
+    final res = await http.get(
+      Uri.parse("https://jsonplaceholder.typicode.com/users"),
+    );
     if (res.statusCode == 200) {
-      return (json.decode(res.body) as List)
-          .map((e) => UsersClass.fromJson(e))
+      return (jsonDecode(res.body) as List)
+          .map((e) => Post.fromJson(e))
           .toList();
     } else {
-      throw Exception("Xato Bor ${res.statusCode}");
+      throw Exception('Failed to load');
     }
   }
 }
