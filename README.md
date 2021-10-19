@@ -1,18 +1,11 @@
-# exam
+# ExamProject
 
-A new Flutter project.
+Rock-Paper-Scissors_Game
 
 ## Getting Started
+![photo_2021-10-20_01-20-44](https://user-images.githubusercontent.com/88949855/137991301-e8476451-f034-4ad7-b7fa-b66590351be6.jpg)
 
-This project is a starting point for a Flutter application.
+![photo_2021-10-20_01-20-38](https://user-images.githubusercontent.com/88949855/137991382-84205240-c34a-44af-aa69-36c4e2396304.jpg)
 
-A few resources to get you started if this is your first Flutter project:
+![photo_2021-10-20_01-20-31](https://user-images.githubusercontent.com/88949855/137991398-4dacc93e-67fa-4c1e-9f46-3ceb8f8f1c72.jpg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Shoxijahon_Rock-Paper-Scissors_Game
-# -Shoxijahon_Rock-Paper-Scissors_Game
